@@ -1,0 +1,525 @@
+﻿@{
+    ViewData["Title"] = "Home page";
+}
+
+<div id="containerIndex" class="page-wrapper bg-blue p-t-100 p-b-100 font-robo">
+    <div class="wrapper wrapper--w1000">
+        <div class="card card-1">
+            <div class="card-heading"></div>
+            <div class="card-body">
+                <h2 class="title">PaloWeb - Dra. Fernanda Leocádio</h2>
+                <div class="row row-space mb-4">
+                    <div class="col--2">
+                        <div class="form-check">
+                            <label class="form-check-label">
+                                <input type="radio" v-model="documento.local" value="0" class="form-check-input radio-input" checked="checked" name="local"> <span class="ml-4">Bairro da Sé</span>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="col--2">
+                        <div class="form-check">
+                            <label class="form-check-label">
+                                <input type="radio" v-model="documento.local" value="1" class="form-check-input radio-input" name="local"> <span class="ml-4">Santo André</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="input-group">
+                    <input class="input--style-1" v-model="documento.empresa" type="text" placeholder="Empresa" name="empresa">
+                </div>
+                <div class="row row-space">
+                    <div class="col--2">
+                        <div class="input-group">
+                            <input class="input--style-1" v-model="documento.nome" type="text" placeholder="Nome" name="name">
+                        </div>
+                    </div>
+                    <div class="col--2">
+                        <div class="input-group">
+                            <input class="input--style-1" type="text" v-model="documento.cargo" placeholder="Cargo" name="cargo">
+                        </div>
+                    </div>
+                </div>
+                <div class="row row-space">
+                    <div class="col--2">
+                        <div class="input-group">
+                            <input class="input--style-1" type="text" v-model="documento.idade" placeholder="Idade" name="idade">
+                        </div>
+                    </div>
+                    <div class="col--2">
+                        <div class="input-group">
+                            <input class="input--style-1 js-datepicker" v-model="documento.data" type="text" placeholder="Data" name="data">
+                            <i class="zmdi zmdi-calendar-note input-icon js-btn-calendar"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="row row-space mb-4">
+                    <div class="col--2">
+                        <div class="form-check">
+                            <label class="form-check-label">
+                                <input type="radio" class="form-check-input radio-input" v-model="documento.apto" name="apto"> <span class="ml-4">Apto</span>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="col--2">
+                        <div class="form-check">
+                            <label class="form-check-label">
+                                <input type="radio" class="form-check-input radio-input" v-model="documento.apto" name="apto"> <span class="ml-4">Inapto</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="row row-space mb-4">
+                    <div class="col--2">
+                        <select class="form-control" name="gender">
+                            <option disabled="disabled" v-model="documento.estadoCivil" selected="selected">Estado Civil</option>
+                            <option value="solteiro">Solteiro</option>
+                            <option value="casado">Casado</option>
+                            <option value="divorciado">Divorciado</option>
+                            <option value="união estável">União estável</option>
+                        </select>
+                    </div>
+                    <div class="col--2">
+                        <select class="form-control" v-model="documento.filho" name="gender">
+                            <option disabled="disabled" selected="selected">Filhos</option>
+                            <option value="solteiro">Não tem filhos</option>
+                            <option value="casado">Tem 1 filho</option>
+                            <option value="divorciado">Tem 2 filhos</option>
+                            <option value="união estável">Tem 3 filhos</option>
+                            <option value="união estável">Tem 4 filhos</option>
+                            <option value="união estável">Tem 5 filhos</option>
+                            <option value="união estável">Tem 6 filhos</option>
+                            <option value="união estável">Tem mais de 6</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row col-12 p-0 mb-4">
+                    <div class="col-12 p-0 mb-1">Vícios</div>
+                    <div class="col-12 row">
+                        <div class="form-check-label col-4">
+                            <input type="checkbox" v-model="documento.vicio" class="form-check-input radio-input" name="vicio"> <span class="ml-2">Álcool</span>
+                        </div>
+                        <div class="form-check-label col-4">
+                            <input type="checkbox" v-model="documento.vicio" class="form-check-input radio-input" name="vicio"> <span class="ml-2">Cigarro</span>
+                        </div>
+                        <div class="form-check-label col-4">
+                            <input type="checkbox" v-model="documento.vicio" class="form-check-input radio-input" name="vicio"> <span class="ml-2">Entorpecentes</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row row-space mb-4">
+                    <div class="col--2">
+                        <select class="form-control" v-model="documento.produtividade" name="gender">
+                            <option disabled="disabled" selected="selected">Percentil de produtividade</option>
+                            <option value="solteiro">Inferior</option>
+                            <option value="casado">Medio Inferior</option>
+                            <option value="divorciado">Medio</option>
+                            <option value="união estável">Medio Superior</option>
+                            <option value="união estável">Superior</option>
+                        </select>
+                    </div>
+                    <div class="col--2">
+                        <select class="form-control" v-model="documento.nor" name="gender">
+                            <option disabled="disabled" selected="selected">NOR</option>
+                            <option value="solteiro">Muito baixo</option>
+                            <option value="casado">Baixo</option>
+                            <option value="divorciado">Medio</option>
+                            <option value="união estável">Alto</option>
+                            <option value="união estável">Muito Alto</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row col-12 p-0 mb-4">
+                    <div class="col-12 p-0 mb-2">Características Qualitativas</div>
+                    <div class=" col-6 row form-check">
+                        <div class="form-check-label">
+                            <input type="checkbox" class="form-check-input radio-input" name="qualitativas" v-model="documento.qualitativa"> <span class="ml-2">Equilíbrio</span>
+                        </div>
+                        <div class="form-check-label">
+                            <input type="checkbox" class="form-check-input radio-input" name="qualitativas" v-model="documento.qualitativa"> <span class="ml-2">Ponderação</span>
+                        </div>
+                        <div class="form-check-label">
+                            <input type="checkbox" class="form-check-input radio-input" name="qualitativas" v-model="documento.qualitativa"> <span class="ml-2">Preocupação em alcançar os objetivos</span>
+                        </div>
+                        <div class="form-check-label">
+                            <input type="checkbox" class="form-check-input radio-input" name="qualitativas" v-model="documento.qualitativa"> <span class="ml-2">Organização</span>
+                        </div>
+                        <div class="form-check-label">
+                            <input type="checkbox" class="form-check-input radio-input" name="qualitativas" v-model="documento.qualitativa"> <span class="ml-2">Método</span>
+                        </div>
+                        <div class="form-check-label">
+                            <input type="checkbox" class="form-check-input radio-input" name="qualitativas" v-model="documento.qualitativa"> <span class="ml-2">Atenção</span>
+                        </div>
+                        <div class="form-check-label">
+                            <input type="checkbox" class="form-check-input radio-input" name="qualitativas" v-model="documento.qualitativa"> <span class="ml-2">Extroversão</span>
+                        </div>
+                        <div class="form-check-label">
+                            <input type="checkbox" class="form-check-input radio-input" name="qualitativas" v-model="documento.qualitativa"> <span class="ml-2">Introversão</span>
+                        </div>
+                        <div class="form-check-label">
+                            <input type="checkbox" class="form-check-input radio-input" name="qualitativas" v-model="documento.qualitativa"> <span class="ml-2">Expansividade</span>
+                        </div>
+                        <div class="form-check-label">
+                            <input type="checkbox" class="form-check-input radio-input" name="qualitativas" v-model="documento.qualitativa"> <span class="ml-2">Naturalidade</span>
+                        </div>
+                        <div class="form-check-label">
+                            <input type="checkbox" class="form-check-input radio-input" name="qualitativas" v-model="documento.qualitativa"> <span class="ml-2">Segurança</span>
+                        </div>
+                        <div class="form-check-label">
+                            <input type="checkbox" class="form-check-input radio-input" name="qualitativas" v-model="documento.qualitativa"> <span class="ml-2">Insegurança</span>
+                        </div>
+                        <div class="form-check-label">
+                            <input type="checkbox" class="form-check-input radio-input" name="qualitativas" v-model="documento.qualitativa"> <span class="ml-2">Tendências dispersivas</span>
+                        </div>
+                        <div class="form-check-label">
+                            <input type="checkbox" class="form-check-input radio-input" name="qualitativas" v-model="documento.qualitativa"> <span class="ml-2">Tendência exibicionista</span>
+                        </div>
+                        <div class="form-check-label">
+                            <input type="checkbox" class="form-check-input radio-input" name="qualitativas" v-model="documento.qualitativa"> <span class="ml-2">Pessoa cuidadosa, econômica e tenaz</span>
+                        </div>
+                        <div class="form-check-label">
+                            <input type="checkbox" class="form-check-input radio-input" name="qualitativas" v-model="documento.qualitativa"> <span class="ml-2">Atitude reflexiva</span>
+                        </div>
+                        <div class="form-check-label">
+                            <input type="checkbox" class="form-check-input radio-input" name="qualitativas" v-model="documento.qualitativa"> <span class="ml-2">Constância</span>
+                        </div>
+                        <div class="form-check-label">
+                            <input type="checkbox" class="form-check-input radio-input" name="qualitativas" v-model="documento.qualitativa"> <span class="ml-2">Estabilidade</span>
+                        </div>
+                        <div class="form-check-label">
+                            <input type="checkbox" class="form-check-input radio-input" name="qualitativas" v-model="documento.qualitativa"> <span class="ml-2">Impulsividade</span>
+                        </div>
+                        <div class="form-check-label">
+                            <input type="checkbox" class="form-check-input radio-input" name="qualitativas" v-model="documento.qualitativa"> <span class="ml-2">Facilidade de adaptação</span>
+                        </div>
+                        <div class="form-check-label">
+                            <input type="checkbox" class="form-check-input radio-input" name="qualitativas" v-model="documento.qualitativa"> <span class="ml-2">Pensamento lógico</span>
+                        </div>
+                        <div class="form-check-label">
+                            <input type="checkbox" class="form-check-input radio-input" name="qualitativas" v-model="documento.qualitativa"> <span class="ml-2">Incapacidade de decisão</span>
+                        </div>
+                        <div class="form-check-label">
+                            <input type="checkbox" class="form-check-input radio-input" name="qualitativas" v-model="documento.qualitativa"> <span class="ml-2">Agressividade</span>
+                        </div>
+                        <div class="form-check-label">
+                            <input type="checkbox" class="form-check-input radio-input" name="qualitativas" v-model="documento.qualitativa"> <span class="ml-2">Atitude vigilante</span>
+                        </div>
+                        <div class="form-check-label">
+                            <input type="checkbox" class="form-check-input radio-input" name="qualitativas" v-model="documento.qualitativa"> <span class="ml-2">Atitude de reserva</span>
+                        </div>
+                        <div class="form-check-label">
+                            <input type="checkbox" class="form-check-input radio-input" name="qualitativas" v-model="documento.qualitativa"> <span class="ml-2">Vitalidade</span>
+                        </div>
+                        <div class="form-check-label">
+                            <input type="checkbox" class="form-check-input radio-input" name="qualitativas" v-model="documento.qualitativa"> <span class="ml-2">Necessidade de contato com as pessoas</span>
+                        </div>
+                        <div class="form-check-label">
+                            <input type="checkbox" class="form-check-input radio-input" name="qualitativas" v-model="documento.qualitativa"> <span class="ml-2">Diplomacia</span>
+                        </div>
+                        <div class="form-check-label">
+                            <input type="checkbox" class="form-check-input radio-input" name="qualitativas" v-model="documento.qualitativa"> <span class="ml-2">Ambivalência</span>
+                        </div>
+                        <div class="form-check-label">
+                            <input type="checkbox" class="form-check-input radio-input" name="qualitativas" v-model="documento.qualitativa"> <span class="ml-2">Sensibilidade</span>
+                        </div>
+                        <div class="form-check-label">
+                            <input type="checkbox" class="form-check-input radio-input" name="qualitativas" v-model="documento.qualitativa"> <span class="ml-2">Propensão à emotividade</span>
+                        </div>
+                        <div class="form-check-label">
+                            <input type="checkbox" class="form-check-input radio-input" name="qualitativas" v-model="documento.qualitativa"> <span class="ml-2">Emotividade desordenada</span>
+                        </div>
+                        <div class="form-check-label">
+                            <input type="checkbox" class="form-check-input radio-input" name="qualitativas" v-model="documento.qualitativa"> <span class="ml-2">Intuição</span>
+                        </div>
+                        <div class="form-check-label">
+                            <input type="checkbox" class="form-check-input radio-input" name="qualitativas" v-model="documento.qualitativa"> <span class="ml-2">Dinamismo</span>
+                        </div>
+                        <div class="form-check-label">
+                            <input type="checkbox" class="form-check-input radio-input" name="qualitativas" v-model="documento.qualitativa"> <span class="ml-2">Vaidade</span>
+                        </div>
+                        <div class="form-check-label">
+                            <input type="checkbox" class="form-check-input radio-input" name="qualitativas" v-model="documento.qualitativa"> <span class="ml-2">Autovalorização</span>
+                        </div>
+                        <div class="form-check-label">
+                            <input type="checkbox" class="form-check-input radio-input" name="qualitativas" v-model="documento.qualitativa"> <span class="ml-2">Euforia</span>
+                        </div>
+                        <div class="form-check-label">
+                            <input type="checkbox" class="form-check-input radio-input" name="qualitativas" v-model="documento.qualitativa"> <span class="ml-2">Concentração</span>
+                        </div>
+                        <div class="form-check-label">
+                            <input type="checkbox" class="form-check-input radio-input" name="qualitativas" v-model="documento.qualitativa"> <span class="ml-2">Minuciosidade</span>
+                        </div>
+                        <div class="form-check-label">
+                            <input type="checkbox" class="form-check-input radio-input" name="qualitativas" v-model="documento.qualitativa"> <span class="ml-2">Timidez</span>
+                        </div>
+                        <div class="form-check-label">
+                            <input type="checkbox" class="form-check-input radio-input" name="qualitativas" v-model="documento.qualitativa"> <span class="ml-2">Inibição</span>
+                        </div>
+                        <div class="form-check-label">
+                            <input type="checkbox" class="form-check-input radio-input" name="qualitativas" v-model="documento.qualitativa"> <span class="ml-2">Flexibilidade dos sentimentos</span>
+                        </div>
+                        <div class="form-check-label">
+                            <input type="checkbox" class="form-check-input radio-input" name="qualitativas" v-model="documento.qualitativa"> <span class="ml-2">Princípios morais estáveis</span>
+                        </div>
+                        <div class="form-check-label">
+                            <input type="checkbox" class="form-check-input radio-input" name="qualitativas" v-model="documento.qualitativa"> <span class="ml-2">Pessoa rigorosa</span>
+                        </div>
+                        <div class="form-check-label">
+                            <input type="checkbox" class="form-check-input radio-input" name="qualitativas" v-model="documento.qualitativa"> <span class="ml-2">Rigidez</span>
+                        </div>
+                        <div class="form-check-label">
+                            <input type="checkbox" class="form-check-input radio-input" name="qualitativas" v-model="documento.qualitativa"> <span class="ml-2">Falta de espontaneidade</span>
+                        </div>
+                        <div class="form-check-label">
+                            <input type="checkbox" class="form-check-input radio-input" name="qualitativas" v-model="documento.qualitativa"> <span class="ml-2">Pontualidade</span>
+                        </div>
+                        <div class="form-check-label">
+                            <input type="checkbox" class="form-check-input radio-input" name="qualitativas" v-model="documento.qualitativa"> <span class="ml-2">Desânimo</span>
+                        </div>
+                        <div class="form-check-label">
+                            <input type="checkbox" class="form-check-input radio-input" name="qualitativas" v-model="documento.qualitativa"> <span class="ml-2">Pessimismo</span>
+                        </div>
+                        <div class="form-check-label">
+                            <input type="checkbox" class="form-check-input radio-input" name="qualitativas" v-model="documento.qualitativa"> <span class="ml-2">Depressão</span>
+                        </div>
+                        <div class="form-check-label">
+                            <input type="checkbox" class="form-check-input radio-input" name="qualitativas" v-model="documento.qualitativa"> <span class="ml-2">Fadiga</span>
+                        </div>
+                        <div class="form-check-label">
+                            <input type="checkbox" class="form-check-input radio-input" name="qualitativas" v-model="documento.qualitativa"> <span class="ml-2">Habilidade</span>
+                        </div>
+                        <div class="form-check-label">
+                            <input type="checkbox" class="form-check-input radio-input" name="qualitativas" v-model="documento.qualitativa"> <span class="ml-2">Inquietação</span>
+                        </div>
+                        <div class="form-check-label">
+                            <input type="checkbox" class="form-check-input radio-input" name="qualitativas" v-model="documento.qualitativa"> <span class="ml-2">Autovalorização</span>
+                        </div>
+                        <div class="form-check-label">
+                            <input type="checkbox" class="form-check-input radio-input" name="qualitativas" v-model="documento.qualitativa"> <span class="ml-2">Euforia</span>
+                        </div>
+                    </div>
+                    <div class=" col-6 row form-check">
+                        <div class="form-check-label">
+                            <input type="checkbox" class="form-check-input radio-input" name="qualitativas" v-model="documento.qualitativa"> <span class="ml-2">Concentração</span>
+                        </div>
+                        <div class="form-check-label">
+                            <input type="checkbox" class="form-check-input radio-input" name="qualitativas" v-model="documento.qualitativa"> <span class="ml-2">Minuciosidade</span>
+                        </div>
+                        <div class="form-check-label">
+                            <input type="checkbox" class="form-check-input radio-input" name="qualitativas" v-model="documento.qualitativa"> <span class="ml-2">Timidez</span>
+                        </div>
+                        <div class="form-check-label">
+                            <input type="checkbox" class="form-check-input radio-input" name="qualitativas" v-model="documento.qualitativa"> <span class="ml-2">Inibição</span>
+                        </div>
+                        <div class="form-check-label">
+                            <input type="checkbox" class="form-check-input radio-input" name="qualitativas" v-model="documento.qualitativa"> <span class="ml-2">Flexibilidade dos sentimentos</span>
+                        </div>
+                        <div class="form-check-label">
+                            <input type="checkbox" class="form-check-input radio-input" name="qualitativas" v-model="documento.qualitativa"> <span class="ml-2">Princípios morais estáveis</span>
+                        </div>
+                        <div class="form-check-label">
+                            <input type="checkbox" class="form-check-input radio-input" name="qualitativas" v-model="documento.qualitativa"> <span class="ml-2">Pessoa rigorosa</span>
+                        </div>
+                        <div class="form-check-label">
+                            <input type="checkbox" class="form-check-input radio-input" name="qualitativas" v-model="documento.qualitativa"> <span class="ml-2">Rigidez</span>
+                        </div>
+                        <div class="form-check-label">
+                            <input type="checkbox" class="form-check-input radio-input" name="qualitativas" v-model="documento.qualitativa"> <span class="ml-2">Falta de espontaneidade</span>
+                        </div>
+                        <div class="form-check-label">
+                            <input type="checkbox" class="form-check-input radio-input" name="qualitativas" v-model="documento.qualitativa"> <span class="ml-2">Pontualidade</span>
+                        </div>
+                        <div class="form-check-label">
+                            <input type="checkbox" class="form-check-input radio-input" name="qualitativas" v-model="documento.qualitativa"> <span class="ml-2">Desânimo</span>
+                        </div>
+                        <div class="form-check-label">
+                            <input type="checkbox" class="form-check-input radio-input" name="qualitativas" v-model="documento.qualitativa"> <span class="ml-2">Pessimismo</span>
+                        </div>
+                        <div class="form-check-label">
+                            <input type="checkbox" class="form-check-input radio-input" name="qualitativas" v-model="documento.qualitativa"> <span class="ml-2">Depressão</span>
+                        </div>
+                        <div class="form-check-label">
+                            <input type="checkbox" class="form-check-input radio-input" name="qualitativas" v-model="documento.qualitativa"> <span class="ml-2">Fadiga</span>
+                        </div>
+                        <div class="form-check-label">
+                            <input type="checkbox" class="form-check-input radio-input" name="qualitativas" v-model="documento.qualitativa"> <span class="ml-2">Habilidade</span>
+                        </div>
+                        <div class="form-check-label">
+                            <input type="checkbox" class="form-check-input radio-input" name="qualitativas" v-model="documento.qualitativa"> <span class="ml-2">Inquietação</span>
+                        </div>
+                        <div class="form-check-label">
+                            <input type="checkbox" class="form-check-input radio-input" name="qualitativas" v-model="documento.qualitativa"> <span class="ml-2">Ansiedade</span>
+                        </div>
+                        <div class="form-check-label">
+                            <input type="checkbox" class="form-check-input radio-input" name="qualitativas" v-model="documento.qualitativa"> <span class="ml-2">Relacionamento interpessoal equilibrado</span>
+                        </div>
+                        <div class="form-check-label">
+                            <input type="checkbox" class="form-check-input radio-input" name="qualitativas" v-model="documento.qualitativa"> <span class="ml-2">Comportamento de respeito para com os outros e autoridades</span>
+                        </div>
+                        <div class="form-check-label">
+                            <input type="checkbox" class="form-check-input radio-input" name="qualitativas" v-model="documento.qualitativa"> <span class="ml-2">Precaução e cautela nos contatos</span>
+                        </div>
+                        <div class="form-check-label">
+                            <input type="checkbox" class="form-check-input radio-input" name="qualitativas" v-model="documento.qualitativa"> <span class="ml-2">Falta de percepção de limites em relação aos outros</span>
+                        </div>
+                        <div class="form-check-label">
+                            <input type="checkbox" class="form-check-input radio-input" name="qualitativas" v-model="documento.qualitativa"> <span class="ml-2">Facilidade para estabelecimento de contatos sociais</span>
+                        </div>
+                        <div class="form-check-label">
+                            <input type="checkbox" class="form-check-input radio-input" name="qualitativas" v-model="documento.qualitativa"> <span class="ml-2">Instabilidade nos relacionamentos</span>
+                        </div>
+                        <div class="form-check-label">
+                            <input type="checkbox" class="form-check-input radio-input" name="qualitativas" v-model="documento.qualitativa"> <span class="ml-2">Falta de limite nos relacionamentos com as autoridades</span>
+                        </div>
+                        <div class="form-check-label">
+                            <input type="checkbox" class="form-check-input radio-input" name="qualitativas" v-model="documento.qualitativa"> <span class="ml-2">Fragilidade</span>
+                        </div>
+                        <div class="form-check-label">
+                            <input type="checkbox" class="form-check-input radio-input" name="qualitativas" v-model="documento.qualitativa"> <span class="ml-2">Visão prática e concreta</span>
+                        </div>
+                        <div class="form-check-label">
+                            <input type="checkbox" class="form-check-input radio-input" name="qualitativas" v-model="documento.qualitativa"> <span class="ml-2">Indecisão</span>
+                        </div>
+                        <div class="form-check-label">
+                            <input type="checkbox" class="form-check-input radio-input" name="qualitativas" v-model="documento.qualitativa"> <span class="ml-2">Falta de capacidade para enfrentar a realidade</span>
+                        </div>
+                        <div class="form-check-label">
+                            <input type="checkbox" class="form-check-input radio-input" name="qualitativas" v-model="documento.qualitativa"> <span class="ml-2">Dificuldade de concentração</span>
+                        </div>
+                        <div class="form-check-label">
+                            <input type="checkbox" class="form-check-input radio-input" name="qualitativas" v-model="documento.qualitativa"> <span class="ml-2">Instabilidade nas atitudes</span>
+                        </div>
+                        <div class="form-check-label">
+                            <input type="checkbox" class="form-check-input radio-input" name="qualitativas" v-model="documento.qualitativa"> <span class="ml-2">Fortes crises emocionais</span>
+                        </div>
+                        <div class="form-check-label">
+                            <input type="checkbox" class="form-check-input radio-input" name="qualitativas" v-model="documento.qualitativa"> <span class="ml-2">Autoagressividade</span>
+                        </div>
+                        <div class="form-check-label">
+                            <input type="checkbox" class="form-check-input radio-input" name="qualitativas" v-model="documento.qualitativa"> <span class="ml-2">Heteroagressividade</span>
+                        </div>
+                        <div class="form-check-label">
+                            <input type="checkbox" class="form-check-input radio-input" name="qualitativas" v-model="documento.qualitativa"> <span class="ml-2">Rigidez Mental</span>
+                        </div>
+                        <div class="form-check-label">
+                            <input type="checkbox" class="form-check-input radio-input" name="qualitativas" v-model="documento.qualitativa"> <span class="ml-2">Insatisfação</span>
+                        </div>
+                        <div class="form-check-label">
+                            <input type="checkbox" class="form-check-input radio-input" name="qualitativas" v-model="documento.qualitativa"> <span class="ml-2">Ansiedade</span>
+                        </div>
+                        <div class="form-check-label">
+                            <input type="checkbox" class="form-check-input radio-input" name="qualitativas" v-model="documento.qualitativa"> <span class="ml-2">Relacionamento interpessoal equilibrado</span>
+                        </div>
+                        <div class="form-check-label">
+                            <input type="checkbox" class="form-check-input radio-input" name="qualitativas" v-model="documento.qualitativa"> <span class="ml-2">Comportamento de respeito para com os outros e autoridades</span>
+                        </div>
+                        <div class="form-check-label">
+                            <input type="checkbox" class="form-check-input radio-input" name="qualitativas" v-model="documento.qualitativa"> <span class="ml-2">Precaução e cautela nos contatos</span>
+                        </div>
+                        <div class="form-check-label">
+                            <input type="checkbox" class="form-check-input radio-input" name="qualitativas" v-model="documento.qualitativa"> <span class="ml-2">Falta de percepção de limites em relação aos outros</span>
+                        </div>
+                        <div class="form-check-label">
+                            <input type="checkbox" class="form-check-input radio-input" name="qualitativas" v-model="documento.qualitativa"> <span class="ml-2">Facilidade para estabelecimento de contatos sociais</span>
+                        </div>
+                        <div class="form-check-label">
+                            <input type="checkbox" class="form-check-input radio-input" name="qualitativas" v-model="documento.qualitativa"> <span class="ml-2">Instabilidade nos relacionamentos</span>
+                        </div>
+                        <div class="form-check-label">
+                            <input type="checkbox" class="form-check-input radio-input" name="qualitativas" v-model="documento.qualitativa"> <span class="ml-2">Falta de limite nos relacionamentos com as autoridades</span>
+                        </div>
+                        <div class="form-check-label">
+                            <input type="checkbox" class="form-check-input radio-input" name="qualitativas" v-model="documento.qualitativa"> <span class="ml-2">Fragilidade</span>
+                        </div>
+                        <div class="form-check-label">
+                            <input type="checkbox" class="form-check-input radio-input" name="qualitativas" v-model="documento.qualitativa"> <span class="ml-2">Visão prática e concreta</span>
+                        </div>
+                        <div class="form-check-label">
+                            <input type="checkbox" class="form-check-input radio-input" name="qualitativas" v-model="documento.qualitativa"> <span class="ml-2">Indecisão</span>
+                        </div>
+                        <div class="form-check-label">
+                            <input type="checkbox" class="form-check-input radio-input" name="qualitativas" v-model="documento.qualitativa"> <span class="ml-2">Falta de capacidade para enfrentar a realidade</span>
+                        </div>
+                        <div class="form-check-label">
+                            <input type="checkbox" class="form-check-input radio-input" name="qualitativas" v-model="documento.qualitativa"> <span class="ml-2">Dificuldade de concentração</span>
+                        </div>
+                        <div class="form-check-label">
+                            <input type="checkbox" class="form-check-input radio-input" name="qualitativas" v-model="documento.qualitativa"> <span class="ml-2">Instabilidade nas atitudes</span>
+                        </div>
+                        <div class="form-check-label">
+                            <input type="checkbox" class="form-check-input radio-input" name="qualitativas" v-model="documento.qualitativa"> <span class="ml-2">Fortes crises emocionais</span>
+                        </div>
+                        <div class="form-check-label">
+                            <input type="checkbox" class="form-check-input radio-input" name="qualitativas" v-model="documento.qualitativa"> <span class="ml-2">Autoagressividade</span>
+                        </div>
+                        <div class="form-check-label">
+                            <input type="checkbox" class="form-check-input radio-input" name="qualitativas" v-model="documento.qualitativa"> <span class="ml-2">Heteroagressividade</span>
+                        </div>
+                        <div class="form-check-label">
+                            <input type="checkbox" class="form-check-input radio-input" name="qualitativas" v-model="documento.qualitativa"> <span class="ml-2">Rigidez Mental</span>
+                        </div>
+                        <div class="form-check-label">
+                            <input type="checkbox" class="form-check-input radio-input" name="qualitativas" v-model="documento.qualitativa"> <span class="ml-2">Insatisfação</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row row-space mb-4">
+                    <div class="col--2">
+                        <select class="form-control" v-model="documento.qualidade" name="gender">
+                            <option disabled="disabled" selected="selected">Qualidade</option>
+                            <option value="solteiro">Boa qualidade na realização de tarefas</option>
+                            <option value="casado">Qualidade regular na realização de tarefas</option>
+                            <option value="divorciado">Irregularidade na realização de tarefas</option>
+                        </select>
+                    </div>
+                    <div class="col--2">
+                    </div>
+                </div>
+                <div class="p-t-20">
+                    <button class="btn btn--radius btn--green" v-on:click="exportarDocumento">Gerar documento</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    var app = new Vue({
+        el: '#containerIndex',
+        data: {
+            documento: {
+                local: '',
+                empresa: '',
+                nome: '',
+                cargo: '',
+                idade: '',
+                data: '',
+                apto: '',
+                estadoCivil: '',
+                filho: '',
+                vicio: '',
+                produtividade: '',
+                nor: '',
+                qualitativa: '',
+                qualidade: ''
+            }
+        },
+        methods: {
+            exportarDocumento: function () {
+                console.log(this.documento);
+                var self = this;
+                $.ajax({
+                    url: "/Home/Exportar",
+                    method: 'POST',
+                    data: { documento: self.documento }
+                }).complete(function () {
+                    
+           
+                }).error(function () {
+
+                });
+            }
+        },
+        mounted: function () {
+
+        }
+    })
+</script>
